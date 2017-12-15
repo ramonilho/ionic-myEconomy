@@ -1,11 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Finanças
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div id="chart">
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"></canvas>
+    </div>
+  </div>
+  <br/>
+  
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-title>Alterar limite</ion-title>
+    
+    <ion-item>
+      <ion-label>Valor (R$): </ion-label>
+      <ion-input type="number" formControlName="value"></ion-input>
+    </ion-item>
+    <br/>
+    <button ion-button full type="submit" [disabled]="!todo.valid">Salvar</button>
+  </form>
+  
 </ion-content>
