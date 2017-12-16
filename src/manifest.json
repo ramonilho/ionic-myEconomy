@@ -1,7 +1,7 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
-  "start_url": "index.html",
+  "name": "MyEconomy",
+  "short_name": "myE",
+  "start_url": "login.html",
   "display": "standalone",
   "icons": [{
     "src": "assets/imgs/logo.png",

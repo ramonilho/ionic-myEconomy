@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireObject } from 'angularfire2/database/interfaces';
 import { Item } from '../../models/item'
+import { User } from '../../models/user';
 
 /**
  * Generated class for the EditItemPage page.
@@ -22,6 +23,7 @@ export class EditItemPage {
   private form : FormGroup;
 
   item: Item;
+  user: User;
 
   angularFirebase: AngularFireDatabase;
   object: AngularFireObject<Item>;
@@ -35,6 +37,7 @@ export class EditItemPage {
       this.angularFirebase = afDB;
 
       // this.id = this.navParams.get('id');
+      this.user = this.navParams.get('user');
       this.item = this.navParams.get('data');
 
       this.form = this.formBuilder.group({
@@ -47,21 +50,29 @@ export class EditItemPage {
   saveItem(){
     console.log("Saving ------");
     console.log(this.item.id);
-    // this.angularFirebase.list("users/"+0+"/items")
-    let ref = this.angularFirebase.object("users/"+0+"/items/"+this.item.id);
+    
+    // Recuperando objeto
+    let ref = this.angularFirebase.object("users/"+this.user.id+"/items/"+this.item.id);
+    // Atualizando as informacoes
     ref.update( {
       name: this.form.value.name,
       price: this.form.value.price
     })
-    this.navCtrl.pop();
+    .then( _ => {
+      this.navCtrl.pop();
+    })
     
   }
 
   deleteItem() {
     console.log("Removing ------");
-    let ref = this.angularFirebase.object("users/"+0+"/items/"+this.item.id);
-    ref.remove();
-    this.navCtrl.pop();
+
+    // Recuperando e removendo o objeto
+    let ref = this.angularFirebase.object("users/"+this.user.id+"/items/"+this.item.id);
+    ref.remove().then( _ => {
+      this.navCtrl.pop();
+    });
+    
   }
 
 

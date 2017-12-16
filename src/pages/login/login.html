@@ -1,0 +1,23 @@
+<ion-content padding>
+  <!-- Header -->
+  <div class="row">
+    <div class="col" text-center>
+        <ion-title>
+            myEconomy
+        </ion-title>
+    </div>
+  </div>
+
+  <!-- Login form -->
+  <form (ngSubmit)="doLogin()">
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="input.username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="input.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Sign in</button>
+  </form>
+</ion-content>

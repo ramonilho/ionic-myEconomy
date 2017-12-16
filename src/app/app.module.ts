@@ -26,10 +26,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
 import { EditItemPage } from '../pages/edit-item/edit-item';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     AboutPage,
     HomePage,
     AddItemPage,
@@ -47,6 +49,7 @@ import { EditItemPage } from '../pages/edit-item/edit-item';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     AboutPage,
     HomePage,
     AddItemPage,
