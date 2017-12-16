@@ -18,15 +18,15 @@
   </div>
   <br/>
   
-  <form [formGroup]="todo" (ngSubmit)="logForm()">
+  <form [formGroup]="form" (ngSubmit)="saveLimit()">
     <ion-title>Alterar limite</ion-title>
     
     <ion-item>
       <ion-label>Valor (R$): </ion-label>
-      <ion-input type="number" formControlName="value"></ion-input>
+      <ion-input type="number" formControlName="limit"></ion-input>
     </ion-item>
     <br/>
-    <button ion-button full type="submit" [disabled]="!todo.valid">Salvar</button>
+    <button ion-button full type="submit" [disabled]="!form.valid">Salvar</button>
   </form>
   
 </ion-content>

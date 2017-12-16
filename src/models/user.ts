@@ -5,11 +5,13 @@ export class User {
     username: String;
     password: String;
     items: [Item];
+    limit: Number;
 
-    constructor(username: String, password: String, id?: Number, items?: [Item]) {
+    constructor(username: String, password: String, id?: Number, items?: [Item], limit?: Number) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.items = items;
+        this.limit = limit;
     }
 }

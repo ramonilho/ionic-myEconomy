@@ -34,6 +34,7 @@ export class AddItemPage {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       price: ['', Validators.required],
+      date: ['', Validators.required],
     });
 
     this.angularFirebase = afDB;
@@ -46,12 +47,13 @@ export class AddItemPage {
     console.log("Adding new item")
     this.angularFirebase
       .list("users/"+this.user.id+"/items")
-      .push(new Item(this.form.value.name, this.form.value.price))
+      .push(new Item(this.form.value.name, this.form.value.price, this.form.value.date))
       .then( ref => {
         ref.update({id: ref.key })
       }).then( _ => {
         this.navCtrl.pop();
       });
   }
+  
 
 }

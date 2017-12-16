@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Lista</ion-title>
+    <ion-title>Lista de compras</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,7 +11,8 @@
         <img src="assets/imgs/totoro-thumbnail.png">
       </ion-thumbnail> -->
       <h2>{{item.name}}</h2>
-      <p>{{item.price}}</p>
+      <p>{{item.price | currency:'BRL':true }}</p>
+      
       <button ion-button clear item-end (click)="editItem(item);">Detalhes</button>
     </ion-item>
   </ion-list> 
@@ -19,14 +20,5 @@
   <ion-fab right bottom>
     <button ion-fab (click)="addItem();"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-
-    <!-- <ion-content padding>
-      <ion-list>
-        <ion-item class="text" *ngFor="let item of items | async">
-          {{item | json}}
-          {{item.name}}
-        </ion-item>
-      </ion-list>
-    </ion-content> -->
 
 </ion-content>

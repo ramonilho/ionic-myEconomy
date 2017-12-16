@@ -36,27 +36,27 @@ export class EditItemPage {
 
       this.angularFirebase = afDB;
 
-      // this.id = this.navParams.get('id');
       this.user = this.navParams.get('user');
       this.item = this.navParams.get('data');
 
       this.form = this.formBuilder.group({
         name: [this.item.name, Validators.required],
         price: [this.item.price, Validators.required],
+        date: [this.item.date, Validators.required],
       });
 
-      console.log("OBJETO TOPPP: "+this.item.name);
   }
   saveItem(){
-    console.log("Saving ------");
-    console.log(this.item.id);
+    console.log("Saving changes ------");
+    // console.log(this.item.id);
     
     // Recuperando objeto
     let ref = this.angularFirebase.object("users/"+this.user.id+"/items/"+this.item.id);
     // Atualizando as informacoes
     ref.update( {
       name: this.form.value.name,
-      price: this.form.value.price
+      price: this.form.value.price,
+      date: this.form.value.date
     })
     .then( _ => {
       this.navCtrl.pop();

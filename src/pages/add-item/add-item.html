@@ -23,6 +23,12 @@
       <ion-label>Valor (R$): </ion-label>
       <ion-input type="number" formControlName="price"></ion-input>
     </ion-item>
+    
+    <ion-item>
+      <ion-label>Data de compra:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date"></ion-datetime>
+    </ion-item>
+
     <br/>
     <button ion-button full type="submit" [disabled]="!form.valid">Salvar</button>
   </form>
